@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <!-- Main container for dashboard layout -->
+    <div class="dashboard-container">
+        
+        <!-- Inventory Box: Displays current inventory with scrollable content -->
+        <div class="box inventory-box">
+            <div class="clickable-area" onclick="navigateToPage('inventory.html')">
+                <h2>Inventory</h2>
+            </div>
+            <div class="scrollable-content">
+                <table class="inventory-table">
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Current Qty</th>
+                            <th>Par</th>
+                            <th>Cost</th>
+                            <th>Status</th>
+                            <th>Order Qty</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Inventory items are dynamically populated here for dashboard view -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Cost Fluctuations Box: Shows recent price increases and decreases -->
+        <div class="box cost-fluctuations-box">
+            <div class="clickable-area" onclick="navigateToPage('cost-fluctuations.html')">
+                <h2>Cost Fluctuations</h2>
+            </div>
+            <div class="fluctuations-container">
+                <div class="fluctuation-column">
+                    <h3 style="color: green;">Price Drops</h3>
+                    <ul id="priceDrops">
+                        <li>Spinach -8%</li>
+                        <li>Carrot -5%</li>
+                    </ul>
+                </div>
+                <div class="fluctuation-column">
+                    <h3 style="color: red;">Price Increases</h3>
+                    <ul id="priceIncreases">
+                        <li>Broccoli +12%</li>
+                        <li>Tomato +10%</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

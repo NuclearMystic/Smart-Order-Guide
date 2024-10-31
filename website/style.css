@@ -1,3 +1,4 @@
+/* General Page Styling */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -7,14 +8,146 @@ body {
     align-items: center;
 }
 
-h2 {
-    color: #333;
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
 }
 
+/* Container Styling */
+.welcome-container, .dashboard-container {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Dashboard container layout */
+.dashboard-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 90%;
+    margin: 20px;
+    gap: 20px;
+}
+
+/* Main Box Styling: Base styling for all boxes */
+.box {
+    padding: 20px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/* COPY: Box Hover Effect */
+.box:hover {
+    transform: scale(1.02);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Inventory Box with Full-Height Flex Layout */
+.inventory-box {
+    width: fit-content; /* Adapts to content width */
+    max-width: 100%; /* Prevents expansion beyond container */
+    height: 100vh; /* Full viewport height */
+    padding: 10px;
+    text-align: left;
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    box-sizing: border-box; /* Include padding in height */
+}
+
+/* Scrollable Content Inside Inventory Box */
+.inventory-box .scrollable-content {
+    flex: 1; /* Takes up available space within inventory-box */
+    overflow-y: auto; /* Enables vertical scrolling */
+    overflow-x: hidden; /* Prevents horizontal scrolling */
+    padding-right: 10px; /* Padding for scrollbar */
+    box-sizing: border-box; /* Ensure padding is accounted for */
+}
+
+/* Cost Fluctuations Box Styling */
+.cost-fluctuations-box {
+    width: 50%;
+    align-self: flex-start;
+    text-align: center;
+}
+
+/* Title Button Style for Clickable Area in Cost Fluctuations Box */
+.cost-fluctuations-box .clickable-area {
+    background-color: #4CAF50; /* Consistent button color with Inventory box */
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+    border-radius: 8px 8px 0 0; /* Rounded top corners */
+    cursor: pointer;
+    width: 100%;
+    box-sizing: border-box;
+    transition: background-color 0.3s;
+}
+
+.cost-fluctuations-box .clickable-area:hover {
+    background-color: #2d6a30; /* Darken on hover */
+}
+
+/* Cost Fluctuations Content Styling */
+.cost-fluctuations {
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+}
+
+/* Layout for Cost Fluctuations Content */
+.fluctuations-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.fluctuation-column {
+    width: 45%;
+    margin-top: 10px;
+}
+
+/* Notifications Styling */
+.notifications {
+    margin-top: 20px;
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+}
+
+/* Threshold Section Styling */
+.threshold-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+#thresholdLabel {
+    width: 3em;
+    text-align: left;
+    display: inline-block;
+}
+
+#threshold {
+    width: 150px;
+}
+
+/* Inventory and Cost Fluctuations Table Styling */
 table {
     width: 80%;
     border-collapse: collapse;
     margin: 20px 0;
+}
+
+.inventory-table, .fluctuations-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
 }
 
 th, td {
@@ -31,76 +164,51 @@ th {
     color: white;
 }
 
-.higher {
-    color: red;
-}
-
-.lower {
+/* Status and Price Indicators */
+.price-change.up, .price-drop {
     color: green;
 }
 
-.refresh-section {
-    margin: 20px;
+.price-change.down, .price-increase {
+    color: red;
 }
 
-button {
-    padding: 10px 20px;
-    background-color: #4CAF50;
+.price-indicator.up {
+    color: green;
+}
+
+.price-indicator.down {
+    color: red;
+}
+
+/* Order Quantity Input Field Styling */
+.order-qty-input {
+    width: 50px;
+    text-align: center;
+}
+
+/* Box Link Styling */
+.box-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Title Button Style for Clickable Area */
+.clickable-area {
+    background-color: #4CAF50; /* Button color */
     color: white;
-    border: none;
+    text-align: center;
+    padding: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+    border-radius: 8px 8px 0 0; /* Rounded top corners */
     cursor: pointer;
-}
-
-button:hover {
-    background-color: #45a049;
-}
-
-.threshold-section {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin: 20px 0;
-}
-
-#threshold {
-    width: 150px;
-}
-
-/* Styling for the Par Guide section */
-.par-guide {
-    width: 80%;
-    margin: 20px 0;
-    text-align: center;
-}
-
-.par-guide h2 {
-    color: #333;
-}
-
-#parGuideTable {
     width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
+    box-sizing: border-box;
+    transition: background-color 0.3s;
 }
 
-#parGuideTable th, #parGuideTable td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: center;
-}
-
-#parGuideTable tr:nth-child(even) { background-color: #f9f9f9; }
-#parGuideTable tr:hover { background-color: #f1f1f1; }
-
-#parGuideTable th {
-    background-color: #4CAF50;
-    color: white;
-}
-
-.below-par {
-    color: red;
-}
-
-.above-par {
-    color: green;
+.clickable-area:hover {
+    background-color: #347837; /* Darken on hover */
 }

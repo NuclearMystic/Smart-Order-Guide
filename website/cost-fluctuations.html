@@ -9,6 +9,7 @@
 </head>
 <body>
 
+<!-- Threshold Section in HTML -->
 <div class="threshold-section">
     <label for="threshold">Set Price Change Threshold (%):</label>
     <input type="range" id="threshold" min="0" max="10" step="0.1" value="0.5" oninput="updateThresholdLabel(this.value)">
@@ -31,46 +32,17 @@
                 <td>Broccoli</td>
                 <td>5.60</td>
                 <td>5.00</td>
-                <td data-change="12">12%</td>
+                <td class="price-increase" data-change="12">+12%</td>
             </tr>
             <tr>
                 <td>Almond Milk</td>
                 <td>3.00</td>
                 <td>2.95</td>
-                <td data-change="1.69">1.69%</td>
+                <td class="price-drop" data-change="1.69">-1.69%</td>
             </tr>
         </tbody>
     </table>
 </div>
-
-<!-- JavaScript to define the updateThresholdLabel and filterCostFluctuations functions -->
-<script>
-    // Update threshold label as slider is moved
-    function updateThresholdLabel(value) {
-        document.getElementById("thresholdLabel").innerText = `${value}%`;
-        filterCostFluctuations(value);
-    }
-
-    // Filter the table based on the threshold
-    function filterCostFluctuations(threshold) {
-        const rows = document.querySelectorAll("#costFluctuationTable tbody tr");
-        rows.forEach(row => {
-            const change = parseFloat(row.querySelector("td[data-change]").getAttribute("data-change"));
-            // Show or hide row based on the threshold
-            if (change >= threshold) {
-                row.style.display = "";
-            } else {
-                row.style.display = "none";
-            }
-        });
-    }
-
-    // Initial filter based on default threshold
-    document.addEventListener("DOMContentLoaded", () => {
-        const initialThreshold = document.getElementById("threshold").value;
-        filterCostFluctuations(initialThreshold);
-    });
-</script>
 
 </body>
 </html>
